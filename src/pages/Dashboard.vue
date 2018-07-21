@@ -6,8 +6,8 @@
         </user-card>
      </div>
 
-     <div class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25">
-                  <user-card :ministros="ministros">
+     <div class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25" v-for="ministro in ministros">
+                  <user-card :ministros="ministro">
                   </user-card>
      </div>
 

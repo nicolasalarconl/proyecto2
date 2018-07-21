@@ -1,23 +1,21 @@
 <template>
-  <div>
-    <md-card class="md-card-profile" v-for="ministro in ministros">
+    <md-card class="md-card-profile">
       <div>
-         <h3> {{ministro.name}} </h3>
+         <h3> {{ministros.name}} </h3>
          <p>.</p>
       </div>
        <div class="md-card-avatar">
-         <img class="img" :src="ministro.image">
+         <img class="img" :src="ministros.image">
       </div>
 
       <md-card-content>
         <h6 class="category text-gray" :src="car"> </h6>
-        <h4 class="card-title"> {{ministro.cargo}} </h4>
-         <span class="text-success"><i class="fas fa-long-arrow-alt-up"></i> {{ministro.porcentaje}}% </span>
+        <h4 class="card-title"> {{ministros.cargo}} </h4>
+         <span class="text-success"><i class="fas fa-long-arrow-alt-up"></i> {{ministros.porcentaje}}% </span>
          <span> JULIO </span>
-        <md-button class="md-round md-success" > VISUALIZAR </md-button>
+        <md-button class="md-round md-success" > VISUALIZAR</md-button>
       </md-card-content>
     </md-card>
-  </div>
 </template>
 
 
