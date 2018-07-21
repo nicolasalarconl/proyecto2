@@ -13,7 +13,7 @@
         <h4 class="card-title"> {{ministros.cargo}} </h4>
          <span class="text-success"><i class="fas fa-long-arrow-alt-up"></i> {{ministros.porcentaje}}% </span>
          <span> JULIO </span>
-        <md-button class="md-round md-success" > VISUALIZAR</md-button>
+        <md-button class="md-round md-success" :href="'#/ministro/' + ministros.id"> VISUALIZAR</md-button>
       </md-card-content>
     </md-card>
 </template>
