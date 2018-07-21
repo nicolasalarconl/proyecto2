@@ -7,6 +7,7 @@ import Typography from '@/pages/Typography.vue'
 import Icons from '@/pages/Icons.vue'
 import Maps from '@/pages/Maps.vue'
 import Notifications from '@/pages/Notifications.vue'
+import Ministro from '@/pages/ministro/Ministro.vue'
 
 const routes = [
   {
@@ -38,6 +39,11 @@ const routes = [
         path: 'icons',
         name: 'Icons',
         component: Icons
+      },
+      {
+        path: 'ministro/:id',
+        name: 'ministro',
+        component: Ministro
       },
       {
         path: 'maps',
