@@ -3,9 +3,23 @@
     <div class="md-layout">
 
       <div class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100">
-                  <user-card>
-  
-                  </user-card>         
+      
+          <md-card class="md-card-profile">
+         
+          <div class="md-card-avatar">
+       <img class="img" :src="cardUserImage">
+    </div>
+
+    <md-card-content>
+      <h6 class="category text-gray" :src="car">  </h6>
+      <h4 class="card-title"> MINISTRO DE ECONOMIA  </h4>
+     
+       <span class="text-success"><i class="fas fa-long-arrow-alt-up"></i> 55% </span> JULIO
+              </p>
+      <md-button class="md-round md-success">VISUALIZAR</md-button>
+    </md-card-content> -->
+        </md-card> 
+      
      </div> 
 
 

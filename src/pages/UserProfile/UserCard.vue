@@ -2,8 +2,8 @@
 
 
   <md-card class="md-card-profile">
-    <div v-for="ministro in ministros">
-       <h6> {{ministro.name}} </h6>
+    <div v-for="ministro in ministro">
+        {{ministro.name}}
     </div>
      <!--<div class="md-card-avatar">
        <img class="img" :src="cardUserImage">
