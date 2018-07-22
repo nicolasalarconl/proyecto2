@@ -6,82 +6,27 @@
                 <div class="md-card-avatar">
                     <img class="img" :src="ministros[$route.params.id].image">
                 </div>
-
                 <md-card-content>
                     <h6 class="category text-gray">{{ ministros[$route.params.id].cargo }}</h6>
                     <h4 class="card-title">{{ ministros[$route.params.id].name }}</h4>
                 </md-card-content>
             </md-card>
-        </div>
+        </div>  
+          <md-card>
+            <md-card-content>
+              <h4 class="title" align="center">Nivel de Aprobación</h4>
+              <div id="chartdiv" style="width: 100%; height: 350px;"></div>
+            </md-card-content>
 
-         <div class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-33">
-           <chart-card
-              :chart-data="dailySalesChart.data"
-              :chart-options="dailySalesChart.options"
-              :chart-type="'Line'"
-          data-background-color="blue">
-          <template slot="content">
-            <h4 class="title">Grafico de Percepción Mensual</h4>
-            <hr>
-              <p class="category">
-                <span class="text-success"><i class="fas fa-long-arrow-alt-up"></i> 55% </span> Respecto al mes anterior
-              </p>
-              <hr>
-              <p>
-                 Comentarios Positivos <span class="text-success"><i class="fas fa-check"></i> 55% </span>
-              </p>
-              <hr>
-              <p>
-                Comentarios Negativos <i class="fas fa-times" ></i> 55%
-              </p>
-              <hr>
-          </template>
-
-          <template slot="footer">
-            <div class="stats">
-              <md-icon>access_time</md-icon>
-              Actualizado hace X tiempo.
-            </div>
-          </template>
-        </chart-card>
+          </md-card>
       </div>
 
-       <div class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-33">
-        <chart-card
-          :chart-data="dataCompletedTasksChart.data"
-          :chart-options="dataCompletedTasksChart.options"
-          :chart-type="'Line'"
-          data-background-color="green">
-          <template slot="content">
-            <h4 class="title">Grafico de Percepción Diaria</h4>
-            <hr>
-              <p class="category">
-                <span class="text-success"><i class="fas fa-long-arrow-alt-up"></i> 55% </span> Respecto a  ayer
-              </p>
-              <hr>
-              <p>
-                 Comentarios Positivos <span class="text-success"><i class="fas fa-check"></i> 55% </span>
-              </p>
-              <hr>
-              <p>
-                Comentarios Negativos <i class="fas fa-times" ></i> 55%
-              </p>
-              <hr>
-          </template>
-
-          <template slot="footer">
-            <div class="stats">
-              <md-icon>access_time</md-icon>
-              Actualizado hace X tiempo.
-            </div>
-          </template>
-        </chart-card>
-      </div>
     </div>
-  </div>
+</div>
 </template>
 
 <script>
+
   import {
   StatsCard,
   ChartCard,
@@ -99,85 +44,10 @@ export default {
     NavTabsTable,
     OrderedTable
   },
-
-  name: 'Ministro',
+  name: 'Ministro', 
   data () {
     return {
-       dailySalesChart: {
-        data: {
-          labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
-          series: [
-            [12, 17, 7, 17, 23, 18, 38]
-          ]
-        },
-        options: {
-          lineSmooth: this.$Chartist.Interpolation.cardinal({
-            tension: 0
-          }),
-          low: 0,
-          high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
-          chartPadding: {
-            top: 0,
-            right: 0,
-            bottom: 0,
-            left: 0
-          }
-        }
-      },
-      dataCompletedTasksChart: {
-        data: {
-          labels: ['12am', '3pm', '6pm', '9pm', '12pm', '3am', '6am', '9am'],
-          series: [
-            [230, 750, 450, 300, 280, 240, 200, 190]
-          ]
-        },
-
-        options: {
-          lineSmooth: this.$Chartist.Interpolation.cardinal({
-            tension: 0
-          }),
-          low: 0,
-          high: 1000, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
-          chartPadding: {
-            top: 0,
-            right: 0,
-            bottom: 0,
-            left: 0
-          }
-        }
-      },
-      emailsSubscriptionChart: {
-        data: {
-          labels: ['Ja', 'Fe', 'Ma', 'Ap', 'Mai', 'Ju', 'Jul', 'Au', 'Se', 'Oc', 'No', 'De'],
-          series: [
-            [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]
-
-          ]
-        },
-        options: {
-          axisX: {
-            showGrid: false
-          },
-          low: 0,
-          high: 1000,
-          chartPadding: {
-            top: 0,
-            right: 5,
-            bottom: 0,
-            left: 0
-          }
-        },
-        responsiveOptions: [
-          ['screen and (max-width: 640px)', {
-            seriesBarDistance: 5,
-            axisX: {
-              labelInterpolationFnc: function (value) {
-                return value[0]
-              }
-            }
-          }]
-        ]
-      },
+      datos: [],
       ministros: [
         {
           id: 0,
@@ -363,7 +233,54 @@ export default {
         }
       ]
     }
-  }
+  },
+  mounted:function(){
+    // GET /someUrl
+    this.$http.get('http://localhost:3000/actors/')
+    .then(response=>{
+       // get body data
+    this.datos = response.body;
+    console.log('datos',this.datos)
+    //this.obtenerFecha();
+    this.loadpie();
+    }, response=>{
+       // error callback
+    console.log('Error cargando lista');
+    });
+  },
+  methods: {
+    loadpie:function(){
+      var chart = AmCharts.makeChart( 
+        "chartdiv", {
+          "type": "pie",
+          "adjustPrecision": true,
+          "startDuration": 1,    
+          "pullOutRadius": "10%",  
+          "fontSize": 15,
+          "legend": {
+            "enabled": true,
+            "align": "center",
+            "markerType": "circle",
+            "useMarkerColorForValues": true,
+            "labelText": "Comentarios: ",
+            "textClickEnabled": true,
+            "valueAlign": "left"
+          },
+          "colors": [
+            "#9FB93F",
+            "#F56E54"
+          ],
+          "labelTickColor": "#000000",
+          "dataProvider": this.datos,
+          "valueField": "numero",
+          "titleField": "aprobacion",
+          "balloonText": "Aprobación [[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
+          "export": {
+            "enabled": true
+          }
+        });
+      }
+    }  
 }
 </script>
 
