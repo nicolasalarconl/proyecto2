@@ -6,6 +6,7 @@ import App from './App'
 
 // router setup
 import routes from './routes/routes'
+import routesAdmin from './routes/routesAdmin'
 
 // Plugins
 import GlobalComponents from './globalComponents'
@@ -19,8 +20,8 @@ import Chartist from 'chartist'
 
 // configure router
 const router = new VueRouter({
-  routes, // short for routes: routes
-  linkExactActiveClass: 'nav-item active'
+  routes, // short for routes: ro utes
+  linkExactActiveClass: 'nav-item active',
 })
 
 Vue.use(VueRouter)
