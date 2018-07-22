@@ -1,0 +1,12 @@
+{
+  "actors": [
+    {
+      "aprobacion": "Positiva",
+      "numero": 5000
+    },
+    {
+      "aprobacion": "Negativa",
+      "numero": 3250
+    }
+  ]
+}
