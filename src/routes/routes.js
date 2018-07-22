@@ -7,7 +7,7 @@ import Typography from '@/pages/Typography.vue'
 import Icons from '@/pages/Icons.vue'
 import Maps from '@/pages/Maps.vue'
 import Notifications from '@/pages/Notifications.vue'
-import UpgradeToPRO from '@/pages/UpgradeToPRO.vue'
+import Ministro from '@/pages/ministro/Ministro.vue'
 
 const routes = [
   {
@@ -41,6 +41,11 @@ const routes = [
         component: Icons
       },
       {
+        path: 'ministro/:id',
+        name: 'ministro',
+        component: Ministro
+      },
+      {
         path: 'maps',
         name: 'Maps',
         meta: {
@@ -54,11 +59,6 @@ const routes = [
         name: 'Notifications',
         component: Notifications
       },
-      {
-        path: 'upgrade',
-        name: 'Upgrade to PRO',
-        component: UpgradeToPRO
-      }
     ]
   }
 ]

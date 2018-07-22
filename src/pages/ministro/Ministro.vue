@@ -1,57 +1,137 @@
+
+
+
 <template>
-  <div class="content">
-    <div class="md-layout">
-      <div class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100">
 
-        <user-card :ministros="presidente">
-        </user-card>
-     </div>
+    <div class="content">
+      <div class="md-layout">
 
 
+         <div class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100">
 
-     <div class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25" v-for="ministro in ministros">
-                  <user-card :ministros="ministro">
-                  </user-card>
-     </div>
 
-     
-   </div>
- </div>
+              <md-card class="ministro md-card-profile">
+                <div class="md-card-avatar">
+                    <img class="img" :src="ministros[$route.params.id].image">
+                </div>
+
+                <md-card-content>
+                    <h6 class="category text-gray">{{ ministros[$route.params.id].cargo }}</h6>
+                    <h4 class="card-title">{{ ministros[$route.params.id].name }}</h4>
+                </md-card-content>
+            </md-card>
+        </div>  
+
+
+         <div class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-33">
+        <chart-card
+          :chart-data="dailySalesChart.data"
+          :chart-options="dailySalesChart.options"
+          :chart-type="'Line'"
+          data-background-color="blue">
+          <template slot="content">
+            <h4 class="title">Grafico de Percepción Mensual</h4>
+            <hr>
+              <p class="category">
+                <span class="text-success"><i class="fas fa-long-arrow-alt-up"></i> 55% </span> Respecto al mes anterior
+              </p>
+              <hr>
+              <p>
+                 Comentarios Positivos <span class="text-success"><i class="fas fa-check"></i> 55% </span>  
+              </p>
+              <hr>
+              <p>
+                Comentarios Negativos <i class="fas fa-times" ></i> 55%  
+              </p>
+              <hr>
+          </template>
+
+          <template slot="footer">
+            <div class="stats">
+              <md-icon>access_time</md-icon>
+              Actualizado hace X tiempo.
+            </div>
+          </template>
+        </chart-card>
+      </div>
+
+       <div class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-33">
+        <chart-card
+          :chart-data="dataCompletedTasksChart.data"
+          :chart-options="dataCompletedTasksChart.options"
+          :chart-type="'Line'"
+          data-background-color="green">
+          <template slot="content">
+            <h4 class="title">Grafico de Percepción Diaria</h4>
+            <hr>
+              <p class="category">
+                <span class="text-success"><i class="fas fa-long-arrow-alt-up"></i> 55% </span> Respecto a  ayer
+              </p>
+              <hr>
+              <p>
+                 Comentarios Positivos <span class="text-success"><i class="fas fa-check"></i> 55% </span>  
+              </p>
+              <hr>
+              <p>
+                Comentarios Negativos <i class="fas fa-times" ></i> 55%  
+              </p>
+              <hr>
+          </template>
+
+          <template slot="footer">
+            <div class="stats">
+              <md-icon>access_time</md-icon>
+              Actualizado hace X tiempo.
+            </div>
+          </template>
+        </chart-card>
+      </div>
+
+
+
+
+    </div>
+</div>
+
+            
+
+</template>
 
 
   
-</template>
+   
+       
+
+
+
+ 
+
+
 
 <script>
-import {
+
+  import {
   StatsCard,
   ChartCard,
   NavTabsCard,
   NavTabsTable,
   OrderedTable
-} from '../components'
-
-import {
-  EditProfileForm,
-  UserCard
-} from '../pages'
+} from '@/components'
 
 
-
-
-export default{
+export default {
   components: {
     StatsCard,
     ChartCard,
     NavTabsCard,
     NavTabsTable,
-    OrderedTable,
-     EditProfileForm,
-    UserCard
+    OrderedTable
   },
+
+  name: 'Ministro', 
   data () {
     return {
-      dailySalesChart: {
+       dailySalesChart: {
         data: {
           labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
           series: [
@@ -94,31 +174,70 @@ export default{
           }
         }
       },
-      presidente: {
-        id: 0,
-          name:'Sebastian Piñera',
-          cargo: 'Presidente de la Republica',
-          porcentaje: '100',
-          image: require('@/assets/img/faces/SEBASTIAN_PINERA.png')
+      emailsSubscriptionChart: {
+        data: {
+          labels: ['Ja', 'Fe', 'Ma', 'Ap', 'Mai', 'Ju', 'Jul', 'Au', 'Se', 'Oc', 'No', 'De'],
+          series: [
+            [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]
+
+          ]
         },
+        options: {
+          axisX: {
+            showGrid: false
+          },
+          low: 0,
+          high: 1000,
+          chartPadding: {
+            top: 0,
+            right: 5,
+            bottom: 0,
+            left: 0
+          }
+        },
+        responsiveOptions: [
+          ['screen and (max-width: 640px)', {
+            seriesBarDistance: 5,
+            axisX: {
+              labelInterpolationFnc: function (value) {
+                return value[0]
+              }
+            }
+          }]
+        ]
+      }
+
+
+
+
+
+
+        ,
       ministros: [
         {
+          id: 0,
+            name:'Sebastian Piñera',
+            cargo: 'Presidente de la Republica',
+            porcentaje: '100',
+            image: require('@/assets/img/faces/SEBASTIAN_PINERA.png')
+        },
+        {
           id: 1,
-          name:'Andrés Chadwick',
+          name:'Andrés Chadwick Piñera',
           cargo:  'Ministerio del Interior y Seguridad Pública',
           porcentaje: '100',
           image: require('@/assets/img/faces/ANDRES_CHADWICK.png')
         },
         {
           id: 2,
-          name: 'Roberto Ampuero',
+          name: 'Roberto Ampuero Espinoza',
            cargo:  'Ministro de Relaciones Exteriores',
           porcentaje: '100',
           image:  require('@/assets/img/faces/ROBERTO_AMPUERO.png')
         },
         {
           id: 3,
-          name: 'Alberto Espina',
+          name: 'Alberto Espina Otero ',
           cargo:  'Ministro de Defensa',
           porcentaje: '100',
           image:  require('@/assets/img/faces/ALBERTO_ESPINA.png')
@@ -277,44 +396,18 @@ export default{
           porcentaje: '100',
           image:  require('@/assets/img/faces/ALEJANDRA_PEREZ.png')
         }
-      ],
-      emailsSubscriptionChart: {
-        data: {
-          labels: ['Ja', 'Fe', 'Ma', 'Ap', 'Mai', 'Ju', 'Jul', 'Au', 'Se', 'Oc', 'No', 'De'],
-          series: [
-            [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]
-
-          ]
-        },
-        options: {
-          axisX: {
-            showGrid: false
-          },
-          low: 0,
-          high: 1000,
-          chartPadding: {
-            top: 0,
-            right: 5,
-            bottom: 0,
-            left: 0
-          }
-        },
-        responsiveOptions: [
-          ['screen and (max-width: 640px)', {
-            seriesBarDistance: 5,
-            axisX: {
-              labelInterpolationFnc: function (value) {
-                return value[0]
-              }
-            }
-          }]
-        ]
-      }
+      ]
     }
   }
 }
-
-
-
-
 </script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+h1, h2 {
+  font-weight: normal;
+}
+a {
+  color: #42b983;
+}
+</style>
