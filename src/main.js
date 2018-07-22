@@ -2,11 +2,11 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import VueResource from 'vue-resource'
 import App from './App'
 
 // router setup
 import routes from './routes/routes'
-import routesAdmin from './routes/routesAdmin'
 
 // Plugins
 import GlobalComponents from './globalComponents'
@@ -21,10 +21,11 @@ import Chartist from 'chartist'
 // configure router
 const router = new VueRouter({
   routes, // short for routes: ro utes
-  linkExactActiveClass: 'nav-item active',
+  linkExactActiveClass: 'nav-item active'
 })
 
 Vue.use(VueRouter)
+Vue.use(VueResource)
 Vue.use(MaterialDashboard)
 Vue.use(GlobalComponents)
 Vue.use(GlobalDirectives)
