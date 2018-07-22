@@ -1,34 +1,69 @@
 <template>
   <div class="content">
     <div class="md-layout">
-      <div class="md-layout-item">
-        <md-card class="md-card-plain">
-          <md-card-header data-background-color="green">
-            <h4 class="title">Material Design Icons</h4>
-            <p class="category">Handcrafted by our friends from
-              <a target="_blank" href="https://design.google.com/icons/">Google</a>
-            </p>
-          </md-card-header>
-
+        <md-card>
           <md-card-content>
-            <div class="iframe-container hidden-sm">
-                <iframe src="https://vuematerial.io/components/icon">
-                    <p>Your browser does not support iframes.</p>
-                </iframe>
-            </div>
-            <div class="hidden-md">
-                <h5>The icons are visible on Desktop mode inside an iframe. Since the iframe is not working on Mobile and Tablets please visit the icons on their original page on Google. Check the
-                    <a href="https://design.google.com/icons/" target="_blank">Material Icons</a>
-                </h5>
-            </div>
+            <h4 class="title" align="center">Nivel de Aprobación general</h4>
+            <div id="chartdiv" style="width: 100%; height: 450px;"></div>
           </md-card-content>
         </md-card>
-      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default{
+  data () {
+    return {
+      datos: []
+    }
+  },
+  mounted:function(){
+    // GET /someUrl
+    this.$http.get('http://localhost:3000/actors/')
+    .then(response=>{
+       // get body data
+    this.datos = response.body;
+    console.log('datos',this.datos)
+    //this.obtenerFecha();
+    this.loadpie();
+    }, response=>{
+       // error callback
+    console.log('Error cargando lista');
+    });
+  },
+  methods: {
+    loadpie:function(){
+      var chart = AmCharts.makeChart( 
+        "chartdiv", {
+          "type": "pie",
+          "adjustPrecision": true,
+          "startDuration": 1,    
+          "pullOutRadius": "10%",  
+          "fontSize": 15,
+          "legend": {
+            "enabled": true,
+            "align": "center",
+            "markerType": "circle",
+            "useMarkerColorForValues": true,
+            "labelText": "Comentarios: ",
+            "textClickEnabled": true,
+            "valueAlign": "left"
+          },
+          "colors": [
+            "#9FB93F",
+            "#F56E54"
+          ],
+          "labelTickColor": "#000000",
+          "dataProvider": this.datos,
+          "valueField": "numero",
+          "titleField": "aprobacion",
+          "balloonText": "Aprobación [[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
+          "export": {
+            "enabled": true
+          }
+        });
+      }
+    }    
 }
 </script>
