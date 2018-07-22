@@ -1,15 +1,7 @@
-
-
-
 <template>
-
     <div class="content">
       <div class="md-layout">
-
-
          <div class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100">
-
-
               <md-card class="ministro md-card-profile">
                 <div class="md-card-avatar">
                     <img class="img" :src="ministros[$route.params.id].image">
@@ -20,14 +12,13 @@
                     <h4 class="card-title">{{ ministros[$route.params.id].name }}</h4>
                 </md-card-content>
             </md-card>
-        </div>  
-
+        </div>
 
          <div class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-33">
-        <chart-card
-          :chart-data="dailySalesChart.data"
-          :chart-options="dailySalesChart.options"
-          :chart-type="'Line'"
+           <chart-card
+              :chart-data="dailySalesChart.data"
+              :chart-options="dailySalesChart.options"
+              :chart-type="'Line'"
           data-background-color="blue">
           <template slot="content">
             <h4 class="title">Grafico de Percepción Mensual</h4>
@@ -37,11 +28,11 @@
               </p>
               <hr>
               <p>
-                 Comentarios Positivos <span class="text-success"><i class="fas fa-check"></i> 55% </span>  
+                 Comentarios Positivos <span class="text-success"><i class="fas fa-check"></i> 55% </span>
               </p>
               <hr>
               <p>
-                Comentarios Negativos <i class="fas fa-times" ></i> 55%  
+                Comentarios Negativos <i class="fas fa-times" ></i> 55%
               </p>
               <hr>
           </template>
@@ -69,11 +60,11 @@
               </p>
               <hr>
               <p>
-                 Comentarios Positivos <span class="text-success"><i class="fas fa-check"></i> 55% </span>  
+                 Comentarios Positivos <span class="text-success"><i class="fas fa-check"></i> 55% </span>
               </p>
               <hr>
               <p>
-                Comentarios Negativos <i class="fas fa-times" ></i> 55%  
+                Comentarios Negativos <i class="fas fa-times" ></i> 55%
               </p>
               <hr>
           </template>
@@ -86,30 +77,11 @@
           </template>
         </chart-card>
       </div>
-
-
-
-
     </div>
-</div>
-
-            
-
+  </div>
 </template>
 
-
-  
-   
-       
-
-
-
- 
-
-
-
 <script>
-
   import {
   StatsCard,
   ChartCard,
@@ -128,7 +100,7 @@ export default {
     OrderedTable
   },
 
-  name: 'Ministro', 
+  name: 'Ministro',
   data () {
     return {
        dailySalesChart: {
@@ -205,14 +177,7 @@ export default {
             }
           }]
         ]
-      }
-
-
-
-
-
-
-        ,
+      },
       ministros: [
         {
           id: 0,

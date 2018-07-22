@@ -2,24 +2,16 @@
   <div class="content">
     <div class="md-layout">
       <div class="md-layout-item md-medium-size-100 md-xsmall-size-100 md-size-100">
-
         <user-card :ministros="presidente">
         </user-card>
      </div>
 
-
-
      <div class="md-layout-item md-medium-size-50 md-xsmall-size-100 md-size-25" v-for="ministro in ministros">
-                  <user-card :ministros="ministro">
-                  </user-card>
+       <user-card :ministros="ministro">
+       </user-card>
      </div>
-
-     
    </div>
  </div>
-
-
-  
 </template>
 
 <script>
@@ -36,9 +28,6 @@ import {
   UserCard
 } from '../pages'
 
-
-
-
 export default{
   components: {
     StatsCard,
@@ -51,49 +40,6 @@ export default{
   },
   data () {
     return {
-      dailySalesChart: {
-        data: {
-          labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
-          series: [
-            [12, 17, 7, 17, 23, 18, 38]
-          ]
-        },
-        options: {
-          lineSmooth: this.$Chartist.Interpolation.cardinal({
-            tension: 0
-          }),
-          low: 0,
-          high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
-          chartPadding: {
-            top: 0,
-            right: 0,
-            bottom: 0,
-            left: 0
-          }
-        }
-      },
-      dataCompletedTasksChart: {
-        data: {
-          labels: ['12am', '3pm', '6pm', '9pm', '12pm', '3am', '6am', '9am'],
-          series: [
-            [230, 750, 450, 300, 280, 240, 200, 190]
-          ]
-        },
-
-        options: {
-          lineSmooth: this.$Chartist.Interpolation.cardinal({
-            tension: 0
-          }),
-          low: 0,
-          high: 1000, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
-          chartPadding: {
-            top: 0,
-            right: 0,
-            bottom: 0,
-            left: 0
-          }
-        }
-      },
       presidente: {
         id: 0,
           name:'Sebastian Piñera',
