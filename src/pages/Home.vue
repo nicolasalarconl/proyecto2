@@ -27,7 +27,7 @@
                    <div class="md-layout-item md-size-100">
                         <div class="places-buttons text-center">
 
-                              <md-button type="button" :href="'#/Icons'" class=" md-button md-primary md-theme-default" >
+                              <md-button type="button" :href="'#/General'" class=" md-button md-primary md-theme-default" >
                                   <div class="md-ripple">
                                       <div class="md-button-content">VISUALIZACIÓN GENERAL </div>
 
@@ -36,7 +36,7 @@
 
                               </md-button>
 
-                                <md-button type="button" class="md-button md-primary md-theme-default" :href="'#/dashboard'">
+                                <md-button type="button" class="md-button md-primary md-theme-default" :href="'#/Gabinete'">
                                     <div class="md-ripple">
                                             <div class="md-button-content"> VISUALIZACIÓN DE GABINETE</div>
                                              <span></span>
