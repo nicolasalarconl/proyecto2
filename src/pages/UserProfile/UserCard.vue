@@ -16,8 +16,8 @@
           <h4 class="card-title"> {{ministros.cargo}} </h4>
          </div>
          <div>
-           <span class="text-success"><i class="fas fa-long-arrow-alt-up"></i> {{ministros.porcentaje}}% </span>
-           <span> JULIO </span>
+          <!-- <span class="text-success"><i class="fas fa-long-arrow-alt-up"></i> {{ministros.porcentaje}}% </span>
+           <span> JULIO </span> -->
           <br>
         </div>
         <div>

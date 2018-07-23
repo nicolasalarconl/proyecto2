@@ -1,5 +1,14 @@
 <template>
+
+
+
   <div class="content">
+    <div class="md-layout">
+        <md-card>
+      
+         <img  class="img" :src="require('@/assets/img/fondoM.png')">
+       </md-card>
+    </div>
     <div class="md-layout">
         <md-card>
           <md-card-content>
@@ -9,6 +18,7 @@
         </md-card>
     </div>
   </div>
+
 </template>
 
 <script>

@@ -234,6 +234,7 @@ export default {
       ]
     }
   },
+
   mounted:function(){
     this.$http.get('http://localhost:3000/actors/')
     .then(response=>{

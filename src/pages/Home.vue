@@ -3,17 +3,50 @@
     <div class="md-layout">
       <div class="md-layout-item">
         <md-card>
-          <md-card-header data-background-color="green">
-            <h2 class="title">PLATAFORMA DE ANALISIS POLITICO </h2>
-            <p class="category">Created using Roboto Font Family</p>
+
+             <img  class="img" :src="require('@/assets/img/moneda.jpg')">
+
+
+
+          <md-card-header data-background-color="green" style="position: absolute;">
+
+            <h2 class="title">  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp   &nbsp  &nbsp  &nbsp &nbsp  &nbspPLATAFORMA DE ANÁLISIS POLÍTICO  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp   &nbsp    &nbsp  &nbsp  &nbsp  &nbsp </h2>
+
+          
           </md-card-header>
+
+ 
+
           <md-card-content>
+
+           
              <div class="md-card-avatar">
-                    
                     <br>
-                    <md-button   class="md-round md-success">VISUALIZACION GENERAL</md-button>
-                    <img  style="position:absolute;"   class="img" :src="require('@/assets/img/fondo.jpeg')">
-                    <md-button   class="md-round md-success">VISUALIZACION GENERAL</md-button>
+                    <br>
+                    <br>
+                   <div class="md-layout-item md-size-100">
+                        <div class="places-buttons text-center">
+                 
+                              <md-button type="button" :href="'#/Icons'" class=" md-button md-primary md-theme-default" >
+                                  <div class="md-ripple">
+                                      <div class="md-button-content">VISUALIZACIÓN GENERAL </div> 
+
+                                        <span></span>
+                                    </div>
+
+                              </md-button> 
+
+                                <md-button type="button" class="md-button md-primary md-theme-default" :href="'#/dashboard'">
+                                    <div class="md-ripple">
+                                            <div class="md-button-content"> VISUALIZACIÓN DE GABINETE</div> 
+                                             <span></span>
+                                    </div>
+                                </md-button>
+
+                            </div>
+                  </div>
+
+                 
 
              </div>
 
