@@ -12,33 +12,33 @@
 
             <h2 class="title">  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp   &nbsp  &nbsp  &nbsp &nbsp  &nbspPLATAFORMA DE ANÁLISIS POLÍTICO  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp   &nbsp    &nbsp  &nbsp  &nbsp  &nbsp </h2>
 
-          
+
           </md-card-header>
 
- 
+
 
           <md-card-content>
 
-           
+
              <div class="md-card-avatar">
                     <br>
                     <br>
                     <br>
                    <div class="md-layout-item md-size-100">
                         <div class="places-buttons text-center">
-                 
+
                               <md-button type="button" :href="'#/Icons'" class=" md-button md-primary md-theme-default" >
                                   <div class="md-ripple">
-                                      <div class="md-button-content">VISUALIZACIÓN GENERAL </div> 
+                                      <div class="md-button-content">VISUALIZACIÓN GENERAL </div>
 
                                         <span></span>
                                     </div>
 
-                              </md-button> 
+                              </md-button>
 
                                 <md-button type="button" class="md-button md-primary md-theme-default" :href="'#/dashboard'">
                                     <div class="md-ripple">
-                                            <div class="md-button-content"> VISUALIZACIÓN DE GABINETE</div> 
+                                            <div class="md-button-content"> VISUALIZACIÓN DE GABINETE</div>
                                              <span></span>
                                     </div>
                                 </md-button>
@@ -46,7 +46,7 @@
                             </div>
                   </div>
 
-                 
+
 
              </div>
 
@@ -59,6 +59,7 @@
 </template>
 
 <script>
+name: 'Home'
 export default{
   props: {
     dataBackgroundColor: {
