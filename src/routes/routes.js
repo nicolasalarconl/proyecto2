@@ -9,6 +9,7 @@ import Grafo from '@/pages/Grafo.vue'
 import Maps from '@/pages/Maps.vue'
 import Notifications from '@/pages/Notifications.vue'
 import Ministro from '@/pages/ministro/Ministro.vue'
+import Error from '@/pages/Error.vue'
 
 const routes = [
   {
@@ -65,6 +66,11 @@ const routes = [
         path: 'notifications',
         name: 'Notifications',
         component: Notifications
+      },
+      {
+        path: '/*',
+        name: 'Error',
+        component: Error
       }
     ]
   }
