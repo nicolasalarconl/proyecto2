@@ -236,7 +236,7 @@ export default {
   },
 
   mounted:function(){
-    this.$http.get('http://localhost:3000/actors/')
+    this.$http.get('https://api.myjson.com/bins/1fjax4')
     .then(response=>{
     this.datos = response.body;
     console.log('datos',this.datos)
