@@ -21,7 +21,10 @@
         <p>Gabinete</p>
       </sidebar-link>
 
-
+      <sidebar-link to="/Grafo">
+        <md-icon>content_paste</md-icon>
+        <p>Grafo</p>
+      </sidebar-link>      
     </side-bar>
 
     <div class="main-panel">
