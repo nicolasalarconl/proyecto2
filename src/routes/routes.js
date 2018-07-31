@@ -5,6 +5,7 @@ import UserProfile from '@/pages/UserProfile.vue'
 import TableList from '@/pages/TableList.vue'
 import Home from '@/pages/Home.vue'
 import Icons from '@/pages/Icons.vue'
+import Grafo from '@/pages/Grafo.vue'
 import Maps from '@/pages/Maps.vue'
 import Notifications from '@/pages/Notifications.vue'
 import Ministro from '@/pages/ministro/Ministro.vue'
@@ -25,6 +26,12 @@ const routes = [
         name: 'User Profile',
         component: UserProfile
       },
+      {
+        path: 'Grafo',
+        name: 'Grafo',
+        component: Grafo
+      },
+
       {
         path: 'table',
         name: 'Table List',
