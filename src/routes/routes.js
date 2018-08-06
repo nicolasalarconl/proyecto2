@@ -2,22 +2,25 @@ import DashboardLayout from '@/pages/Layout/DashboardLayout.vue'
 
 import Dashboard from '@/pages/Dashboard.vue'
 import UserProfile from '@/pages/UserProfile.vue'
-import TableList from '@/pages/TableList.vue'
-import Typography from '@/pages/Home.vue'
+import TableList from '@/pages/cuenta/TableList.vue'
+import Home from '@/pages/Home.vue'
 import Icons from '@/pages/Icons.vue'
+import Grafo from '@/pages/Grafo.vue'
 import Maps from '@/pages/Maps.vue'
 import Notifications from '@/pages/Notifications.vue'
 import Ministro from '@/pages/ministro/Ministro.vue'
+import Error from '@/pages/Error.vue'
+
 
 const routes = [
   {
     path: '/',
     component: DashboardLayout,
-    redirect: '/dashboard',
+    redirect: '/Home',
     children: [
       {
-        path: 'dashboard',
-        name: 'Dashboard',
+        path: 'Gabinete',
+        name: 'Gabinete',
         component: Dashboard
       },
       {
@@ -26,18 +29,24 @@ const routes = [
         component: UserProfile
       },
       {
+        path: 'Grafo',
+        name: 'Grafo',
+        component: Grafo
+      },
+
+      {
         path: 'table',
         name: 'Table List',
         component: TableList
       },
       {
-        path: 'typography',
-        name: 'Typography',
-        component: Typography
+        path: 'Home',
+        name: 'Home',
+        component: Home
       },
       {
-        path: 'icons',
-        name: 'Icons',
+        path: 'general',
+        name: 'General',
         component: Icons
       },
       {
@@ -58,6 +67,11 @@ const routes = [
         path: 'notifications',
         name: 'Notifications',
         component: Notifications
+      },
+      {
+        path: '/*',
+        name: 'Error',
+        component: Error
       }
     ]
   }

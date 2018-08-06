@@ -4,28 +4,31 @@
 
     <side-bar>
       <mobile-menu slot="content"></mobile-menu>
-      <sidebar-link to="/Typography">
+      <sidebar-link to="/Home">
         <md-icon>dashboard</md-icon>
         <p>Home</p>
       </sidebar-link>
 
 
-      <sidebar-link to="/Icons">
+      <sidebar-link to="/General">
         <md-icon>content_paste</md-icon>
         <p>General</p>
       </sidebar-link>
 
 
-      <sidebar-link to="/dashboard">
+      <sidebar-link to="/Gabinete">
         <md-icon>person</md-icon>
         <p>Gabinete</p>
       </sidebar-link>
-      
-  
+
+      <sidebar-link to="/Grafo">
+        <md-icon>content_paste</md-icon>
+        <p>Grafo</p>
+      </sidebar-link>      
     </side-bar>
 
-    <div class="main-panel"> 
-     <!--  <top-navbar></top-navbar> -->
+    <div class="main-panel">
+       <top-navbar></top-navbar> 
 
       <dashboard-content>
 

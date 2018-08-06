@@ -2,7 +2,7 @@
   <form>
     <md-card>
       <md-card-header :data-background-color="dataBackgroundColor">
-        <h4 class="title">Nuevo Politico</h4>
+        <h4 class="title">Editar Politico</h4>
       </md-card-header>
       <md-card-content>
         <div class="md-layout">

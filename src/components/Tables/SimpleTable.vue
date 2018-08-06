@@ -2,10 +2,21 @@
   <div>
     <md-table v-model="users" :table-header-color="tableHeaderColor">
       <md-table-row slot="md-table-row" slot-scope="{ item }">
-        <md-table-cell md-label="Name">{{ item.name }}</md-table-cell>
-        <md-table-cell md-label="Country">{{ item.cargo }}</md-table-cell>
-        <md-table-cell md-label="City">{{ item.porcentaje }}</md-table-cell>
-        <md-table-cell md-label="Salary">{{ item.image }}</md-table-cell>
+        <md-table-cell md-label="Nombre">{{ item.name }}</md-table-cell>
+        <md-table-cell md-label="Cargo">{{ item.cargo }}</md-table-cell>
+        <md-table-cell md-label="Acciones"> 
+ <md-button class="md-just-icon md-simple md-primary">
+            <md-icon>edit</md-icon>
+            <md-tooltip md-direction="top">Editar</md-tooltip>
+          </md-button>
+          <md-button class="md-just-icon md-simple md-danger">
+            <md-icon>close</md-icon>
+            <md-tooltip md-direction="top">Borrar</md-tooltip>
+          </md-button>
+
+
+
+        </md-table-cell>
       </md-table-row>
     </md-table>
   </div>

@@ -3,14 +3,14 @@
     <div class="md-layout">
       <div class="md-layout-item">
         <md-card>
+          <center>
+             <img  class="img" :src="require('@/assets/img/em404.png')" style="height: 200px;width: 200px;position: static;">
 
-             <img  class="img" :src="require('@/assets/img/moneda.jpg')">
 
-
-
+</center>
           <md-card-header data-background-color="green" style="position: absolute;">
 
-            <h2 class="title">  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp   &nbsp  &nbsp  &nbsp &nbsp  &nbspPLATAFORMA DE ANÁLISIS POLÍTICO  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp   &nbsp    &nbsp  &nbsp  &nbsp  &nbsp </h2>
+            <h2 class="title">ERROR 404 La página solicitada no se encuentra</h2>
 
 
           </md-card-header>
@@ -27,22 +27,14 @@
                    <div class="md-layout-item md-size-100">
                         <div class="places-buttons text-center">
 
-                              <md-button type="button" :href="'#/General'" class=" md-button md-primary md-theme-default" >
+                              <md-button type="button" :href="'#/Home'" class=" md-button md-primary md-theme-default" >
                                   <div class="md-ripple">
-                                      <div class="md-button-content">VISUALIZACIÓN GENERAL </div>
+                                      <div class="md-button-content">Volver a la pagina principal </div>
 
                                         <span></span>
                                     </div>
 
                               </md-button>
-
-                                <md-button type="button" class="md-button md-primary md-theme-default" :href="'#/Gabinete'">
-                                    <div class="md-ripple">
-                                            <div class="md-button-content"> VISUALIZACIÓN DE GABINETE</div>
-                                             <span></span>
-                                    </div>
-                                </md-button>
-
                             </div>
                   </div>
 
@@ -59,7 +51,7 @@
 </template>
 
 <script>
-name: 'Home'
+name: 'Error'
 export default{
   props: {
     dataBackgroundColor: {

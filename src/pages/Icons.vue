@@ -1,11 +1,7 @@
 <template>
-
-
-
   <div class="content">
     <div class="md-layout">
         <md-card>
-      
          <img  class="img" :src="require('@/assets/img/fondoM.png')">
        </md-card>
     </div>
@@ -30,7 +26,7 @@ export default{
   },
   mounted:function(){
     // GET /someUrl
-    this.$http.get('http://localhost:3000/actors/')
+    this.$http.get('https://api.myjson.com/bins/lphig')
     .then(response=>{
        // get body data
     this.datos = response.body;
