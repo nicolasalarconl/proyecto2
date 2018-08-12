@@ -10,7 +10,7 @@
           <md-card-content>
             <h4 class="title" align="center">Grafo</h4>
             <div align="center">
-              <svg width="600" height="300"></svg>
+              <svg width="1000" height="700"></svg>
             </div>          
           </md-card-content>
         </md-card>
@@ -28,7 +28,7 @@ export default{
     }
   },
   mounted:function(){
-    this.$http.get('https://api.myjson.com/bins/okd7s')
+    this.$http.get('https://api.myjson.com/bins/sd5oc')
       .then(response=>{
         this.data = response.body;
         console.log(this.data);
@@ -43,10 +43,11 @@ export default{
           width = +svg.attr("width"),
           height = +svg.attr("height");
       
-      var color = d3.scaleOrdinal(d3.schemeCategory20);
+      var color = d3.scaleOrdinal(d3.schemeCategory20c);
+      var c = '#FF2900'
       
       var simulation = d3.forceSimulation()
-          .force("link", d3.forceLink().id(function(d) { return d.id; }).distance(100).strength(1))
+          .force("link", d3.forceLink().id(function(d) { return d.id; }).distance(150).strength(1))
           .force("charge", d3.forceManyBody())
           .force("center", d3.forceCenter(width / 2, height / 2));
 
@@ -66,8 +67,8 @@ export default{
           .on("mouseout", mouseout)
 
         var circles = node.append("circle")
-            .attr("r", 8)
-            .attr("fill", function(d) { return color(d.group); })
+            .attr("r", function(d) { if (d.weight == 10) return 10; else return 6})
+            .attr("fill", function(d) { if (d.weight == 10) return c; else return color(d.weight); })
             .call(d3.drag()
                 .on("start", dragstarted)
                 .on("drag", dragged)
@@ -75,13 +76,13 @@ export default{
 
         var lables = node.append("text")
             .text(function(d) {
-              return d.id;
+              return d.username;
             })
-            .attr('x', 6)
+            .attr('x', 10)
             .attr('y', 3);
 
-        node.append("title")
-            .text(function(d) { return d.id; });
+        //node.append("title")
+        //    .text(function(d) { return d.id; });
 
         simulation
             .nodes(graph.nodes)
