@@ -23,7 +23,7 @@
 
       <sidebar-link to="/Grafo">
         <md-icon>content_paste</md-icon>
-        <p>Grafo</p>
+        <p>Influyentes</p>
       </sidebar-link>      
     </side-bar>
 
