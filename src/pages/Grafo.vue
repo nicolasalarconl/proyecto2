@@ -2,15 +2,15 @@
   <div class="content">
     <div class="md-layout">
         <md-card>
-         <img  class="img" :src="require('@/assets/img/fondoM.png')">
+         <img  class="img" :src="require('@/assets/img/5b4c9b7099327.jpg')">
        </md-card>
     </div>
     <div class="md-layout">
         <md-card>
           <md-card-content>
-            <h4 class="title" align="center">Grafo</h4>
+            <h4 class="title" align="center">Influencia dentro del Gavinete</h4>
             <div align="center">
-              <svg width="1000" height="700"></svg>
+              <svg width="1000" height="600"></svg>
             </div>          
           </md-card-content>
         </md-card>
@@ -81,8 +81,54 @@ export default{
             .attr('x', 10)
             .attr('y', 3);
 
-        //node.append("title")
-        //    .text(function(d) { return d.id; });
+        node.append("title")
+            .text(function(d) { if (d.weight == 10) 
+                                  if(d.username == "Sebastian Piñera") 
+                                    return "Presidente";
+                                  else if(d.username == "Cecilia Pérez")
+                                    return "Ministra Secretaria General de Gobierno";
+                                  else if(d.username == "Gloria Hutt Hesse")
+                                    return "Ministra de Transportes y Telecomunicaciones";                                 
+                                  else if(d.username == "Alejandra Pérez Lecaros")
+                                    return "Ministra de la Cultura y Las Artes";
+                                  else if(d.username == "Roberto Ampuero")
+                                    return "Ministro de Relaciones Exteriores";
+                                  else if(d.username == "Alberto Espina")
+                                    return "Ministro de Defensa";
+                                  else if(d.username == "Felipe Larraín Bascuñán")
+                                    return "Ministro de Hacienda";
+                                  else if(d.username == "Gonzalo Blumel Mac-Iver")
+                                    return "Ministro Secretario General de la Presidencia";
+                                  else if(d.username == "José Ramón Valente Vías")
+                                    return "Ministro de Economía, Fomento y Turismo";
+                                  else if(d.username == "Alfredo Moreno Charme")
+                                    return "Ministro de Desarrollo Social";
+                                  else if(d.username == "Hernán Larraín Fernández")
+                                    return "Ministro de Justicia y Derechos Humanos";
+                                  else if(d.username == "Nicolás Monckeberg Díaz")
+                                    return "Ministro del Trabajo y Previsión Social";
+                                  else if(d.username == "Juan Andrés Fontaine Talavera")
+                                    return "Ministro de Obras Públicas";
+                                  else if(d.username == "Emilio Santelices Cuevas")
+                                    return "Ministro de Salud";
+                                  else if(d.username == "Cristian Monckeberg Bruner")
+                                    return "Ministro de Vivienda y Urbanismo";
+                                  else if(d.username == "Antonio Walker Prieto")
+                                    return "Ministro de Agricultura";
+                                  else if(d.username == "Baldo Prokurica Prokurica")
+                                    return "Ministro de Minería";
+                                  else if(d.username == "Felipe Ward Edwards")
+                                    return "Ministro de Bienes Nacionales";
+                                  else if(d.username == "Susana Jiménez Schuster")
+                                    return "Ministra de Energía";
+                                  else if(d.username == "Marcela Cubillos Sigall")
+                                    return "Ministra de Medio Ambiente";
+                                  else if(d.username == "Pauline Kantor Pupkin")
+                                    return "Ministra de Medio Ambiente";
+                                  else if(d.username == "Isabel Plá Jarufe")
+                                    return "Ministra de la Mujer y la Equidad de Género";
+                                  else return "Cuenta de Twitter";
+                                else return "Cuenta de Twitter";});
 
         simulation
             .nodes(graph.nodes)
@@ -141,9 +187,9 @@ export default{
 }
 
 .nodes circle {
-  stroke: #fff;
-  stroke-width: 0px;
-  stroke-opacity: 0.6;
+  stroke: #000;
+  stroke-width: px;
+  stroke-opacity: 1;
 }
 
 text {
