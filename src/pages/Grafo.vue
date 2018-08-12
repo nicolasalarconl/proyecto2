@@ -127,7 +127,8 @@ export default{
                                     return "Ministra de Medio Ambiente";
                                   else if(d.username == "Isabel Plá Jarufe")
                                     return "Ministra de la Mujer y la Equidad de Género";
-                                else return "Cuenta de Twitter" });
+                                  else return "Cuenta de Twitter";
+                                else return "Cuenta de Twitter";});
 
         simulation
             .nodes(graph.nodes)
