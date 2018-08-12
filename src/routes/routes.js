@@ -10,9 +10,13 @@ import Maps from '@/pages/Maps.vue'
 import Notifications from '@/pages/Notifications.vue'
 import Ministro from '@/pages/ministro/Ministro.vue'
 import Error from '@/pages/Error.vue'
+import Iniciar from '@/pages/IniciarSesion.vue'
+import Agregar from '@/pages/UserProfile/EditProfileForm.vue'
 
 
 const routes = [
+  
+
   {
     path: '/',
     component: DashboardLayout,
@@ -28,12 +32,24 @@ const routes = [
         name: 'User Profile',
         component: UserProfile
       },
+        {
+    path:'Iniciar',
+    name: 'Iniciar',
+    component: Iniciar
+  }
+    ,
+
       {
         path: 'Grafo',
         name: 'Grafo',
         component: Grafo
       },
-
+        {
+          path: 'Agregar',
+        name: 'Agregar Politico',
+        component: Agregar
+      },
+      
       {
         path: 'table',
         name: 'Table List',
@@ -73,6 +89,7 @@ const routes = [
         name: 'Error',
         component: Error
       }
+
     ]
   }
 ]

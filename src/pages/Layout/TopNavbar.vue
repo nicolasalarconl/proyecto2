@@ -20,16 +20,27 @@
               <p class="hidden-lg hidden-md">Dashboard</p>
             </md-list-item> -->
 
-            <md-list-item to="/table" class="dropdown">
+            <md-list-item to="#" class="dropdown">
               <drop-down>
                 <a slot="title" class="dropdown-toggle" data-toggle="dropdown">
                   <i class="material-icons">person</i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right">
                   <li><a href="Table List">Lista de Politicos</a></li>
-                  <li><a href="user">Agregar Politicos</a></li>
+                  <li><a href="Agregar Politicos">Agregar Politicos</a></li>
                   <li><a href="#">Ajustes </a></li>
                    <li><a href="#">Cerrar Sesión </a></li>
+                </ul>
+              </drop-down>
+            </md-list-item>
+
+            <md-list-item to="#" class="dropdown">
+              <drop-down>
+                <a slot="title" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="material-icons">person</i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li><a href="Agregar ">Iniciar Sesión</a></li>
                 </ul>
               </drop-down>
             </md-list-item>
