@@ -26,7 +26,7 @@ export default{
   },
   mounted:function(){
     // GET /someUrl
-    this.$http.get('https://api.myjson.com/bins/lphig')
+    this.$http.get('http://localhost:8080/politicals/total/general')
     .then(response=>{
        // get body data
     this.datos = response.body;
@@ -40,12 +40,12 @@ export default{
   },
   methods: {
     loadpie:function(){
-      var chart = AmCharts.makeChart( 
+      var chart = AmCharts.makeChart(
         "chartdiv", {
           "type": "pie",
           "adjustPrecision": true,
-          "startDuration": 1,    
-          "pullOutRadius": "10%",  
+          "startDuration": 1,
+          "pullOutRadius": "10%",
           "fontSize": 15,
           "legend": {
             "enabled": true,
@@ -58,7 +58,8 @@ export default{
           },
           "colors": [
             "#9FB93F",
-            "#F56E54"
+            "#F56E54",
+            "#727272"
           ],
           "labelTickColor": "#000000",
           "dataProvider": this.datos,
@@ -70,6 +71,6 @@ export default{
           }
         });
       }
-    }    
+    }
 }
 </script>

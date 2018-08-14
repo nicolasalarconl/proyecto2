@@ -86,7 +86,7 @@ export default{
         {
           id: 6,
           name: 'Cecilia Pérez',
-          cargo:  'Ministro Secretario General de Gobierno',
+          cargo:  'Ministra Secretario General de Gobierno',
           porcentaje: '100',
           image:  require('@/assets/img/faces/CECILIA_PEREZ.png')
         },
@@ -106,122 +106,108 @@ export default{
         },
         {
           id: 9,
-          name: 'Alfredo Moreno Charme',
-          cargo: 'Ministro de Desarrollo Social',
+          name: 'Marcela Cubillos Sigall',
+          cargo: 'Ministra de Educación',
           porcentaje: '100',
-          image:  require('@/assets/img/faces/ALFREDO_MORENO.png')
-        },
-        {
-          id: 10,
-          name: 'Gerardo Varela Alfonso',
-          cargo: 'Ministro de Educación',
-          porcentaje: '100',
-          image:  require('@/assets/img/faces/GERARDO_VARELA.png')
+          image:  require('@/assets/img/faces/MARCELA_CUBILLOS.png')
         },
          {
-           id: 11,
+           id: 10,
           name: 'Hernán Larraín Fernández ',
           cargo: 'Ministro de Justicia y Derechos Humanos',
           porcentaje: '100',
           image:  require('@/assets/img/faces/HERNAN_LARRAIN.png')
         },
           {
-            id: 12,
+            id: 11,
           name: 'Nicolás Monckeberg Díaz',
           cargo: 'Ministro del Trabajo y Previsión Social',
           porcentaje: '100',
           image:  require('@/assets/img/faces/NICOLAS_MONCKEBERG.png')
         },
         {
-          id: 13,
+          id: 12,
           name: 'Juan Andrés Fontaine Talavera ',
           cargo: 'Ministro de Obras Públicas',
           porcentaje: '100',
           image:  require('@/assets/img/faces/JOSE_RAMON_VALENTE.png')
         },
         {
-          id: 14,
-          name: 'Juan Andrés Fontaine Talavera ',
-          cargo: 'Ministro de Obras Públicas',
-          porcentaje: '100',
-          image:  require('@/assets/img/faces/JUAN_ANDRES_FONTAINE.png')
-        },
-        {
-          id: 15,
+          id: 13,
           name: 'Emilio Santelices Cuevas',
           cargo: 'Ministro de Salud',
           porcentaje: '100',
           image:  require('@/assets/img/faces/EMILIO_SANTELICES.png')
         },
         {
-          id: 16,
+          id: 14,
           name: 'Cristian Monckeberg Bruner',
           cargo: 'Ministro de Vivienda y Urbanismo',
           porcentaje: '100',
           image:  require('@/assets/img/faces/CRISTIAN_MONCKEBERG.png')
         },
         {
-          id: 17,
+          id: 15,
           name: 'Antonio Walker Prieto',
           cargo: 'Ministro de Agricultura',
           porcentaje: '100',
           image:  require('@/assets/img/faces/ANTONIO_WALKER.png')
         },
          {
-           id: 18,
+           id: 16,
           name: 'Baldo Prokurica Prokurica ',
           cargo: 'Ministro de Minería',
           porcentaje: '100',
           image:  require('@/assets/img/faces/BALDO_PROKURICA.png')
         },
          {
-           id: 19,
+           id: 17,
           name: 'Gloria Hutt Hesse',
           cargo: 'Ministra de Transportes y Telecomunicaciones',
           porcentaje: '100',
           image:  require('@/assets/img/faces/GLORIA_HUTT.png')
         },
           {
-            id: 20,
+            id: 18,
           name: 'Felipe Ward Edwards',
           cargo: 'Ministro de Bienes Nacionales',
           porcentaje: '100',
           image:  require('@/assets/img/faces/FELIPE_WARD.png')
         },
          {
-           id: 21,
+           id: 19,
           name: 'Susana Jiménez Schuster ',
           cargo: 'Ministra de Energía',
           porcentaje: '100',
           image:  require('@/assets/img/faces/SUSANA_JIMENEZ.png')
         },
           {
-            id: 22,
-          name: 'Marcela Cubillos Sigall',
+            id: 20,
+          name: 'María Carolina Schmidt Zaldívar',
           cargo: 'Ministra de Medio Ambiente',
           porcentaje: '100',
-          image:  require('@/assets/img/faces/MARCELA_CUBILLOS.png')
+          image:  require('@/assets/img/faces/CAROLINA_SCHMIDT.png')
         },
          {
-           id: 23,
+           id: 21,
           name: 'Pauline Kantor Pupkin  ',
           cargo: 'Ministra de Medio Ambiente',
           porcentaje: '100',
           image:  require('@/assets/img/faces/PAULINE_KANTOR.png')
         },
         {
-          id: 24,
+          id: 22,
           name: 'Isabel Plá Jarufe',
           cargo: 'Ministra de la Mujer y la Equidad de Género',
           porcentaje: '100',
           image:  require('@/assets/img/faces/ISABEL_PLA.png')
         },
          {
-           id: 25,
-          name: 'Alejandra Pérez Lecaros ',
-          cargo: 'Ministra de la Cultura y Las Artes',
+           id: 23,
+          name: 'Mauricio José Rojas Mullor',
+          cargo: 'Ministro de la Cultura y Las Artes',
           porcentaje: '100',
-          image:  require('@/assets/img/faces/ALEJANDRA_PEREZ.png')
+          image:  require('@/assets/img/faces/MAURICIO_ROJAS.png')
         }
       ],
       emailsSubscriptionChart: {

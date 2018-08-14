@@ -8,10 +8,10 @@
     <div class="md-layout">
         <md-card>
           <md-card-content>
-            <h4 class="title" align="center">Influencia dentro del Gavinete</h4>
+            <h4 class="title" align="center">Influencia dentro del Gabinete</h4>
             <div align="center">
-              <svg width="1000" height="600"></svg>
-            </div>          
+              <svg width="1200" height="600"></svg>
+            </div>
           </md-card-content>
         </md-card>
     </div>
@@ -28,7 +28,7 @@ export default{
     }
   },
   mounted:function(){
-    this.$http.get('https://api.myjson.com/bins/sd5oc')
+    this.$http.get('http://localhost:8080/neo4j/grafo')
       .then(response=>{
         this.data = response.body;
         console.log(this.data);
@@ -42,12 +42,12 @@ export default{
       var svg = d3.select("svg"),
           width = +svg.attr("width"),
           height = +svg.attr("height");
-      
+
       var color = d3.scaleOrdinal(d3.schemeCategory20c);
       var c = '#FF2900'
-      
+
       var simulation = d3.forceSimulation()
-          .force("link", d3.forceLink().id(function(d) { return d.id; }).distance(150).strength(1))
+          .force("link", d3.forceLink().id(function(d) { return d.id; }).distance(100).strength(1))
           .force("charge", d3.forceManyBody())
           .force("center", d3.forceCenter(width / 2, height / 2));
 
@@ -82,13 +82,13 @@ export default{
             .attr('y', 3);
 
         node.append("title")
-            .text(function(d) { if (d.weight == 10) 
-                                  if(d.username == "Sebastian Piñera") 
+            .text(function(d) { if (d.weight == 10)
+                                  if(d.username == "Sebastian Piñera")
                                     return "Presidente";
                                   else if(d.username == "Cecilia Pérez")
                                     return "Ministra Secretaria General de Gobierno";
                                   else if(d.username == "Gloria Hutt Hesse")
-                                    return "Ministra de Transportes y Telecomunicaciones";                                 
+                                    return "Ministra de Transportes y Telecomunicaciones";
                                   else if(d.username == "Alejandra Pérez Lecaros")
                                     return "Ministra de la Cultura y Las Artes";
                                   else if(d.username == "Roberto Ampuero")
@@ -143,7 +143,7 @@ export default{
               .attr("y1", function(d) { return d.source.y; })
               .attr("x2", function(d) { return d.target.x; })
               .attr("y2", function(d) { return d.target.y; });
-      
+
           node
               .attr("transform", function(d) {
                 return "translate(" + d.x + "," + d.y + ")";
@@ -175,7 +175,7 @@ export default{
               .attr("r", 8);
         };
     }
-  }  
+  }
 }
 
 </script>
