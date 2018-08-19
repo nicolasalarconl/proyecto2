@@ -6,19 +6,14 @@
           <center>
              <img  class="img" :src="require('@/assets/img/em404.png')" style="height: 200px;width: 200px;position: static;">
 
-
 </center>
           <md-card-header data-background-color="green" style="position: absolute;">
 
             <h2 class="title">ERROR 404 La página solicitada no se encuentra</h2>
 
-
           </md-card-header>
 
-
-
           <md-card-content>
-
 
              <div class="md-card-avatar">
                     <br>
@@ -38,10 +33,7 @@
                             </div>
                   </div>
 
-
-
              </div>
-
 
           </md-card-content>
         </md-card>

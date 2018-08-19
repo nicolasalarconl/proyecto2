@@ -1,5 +1,4 @@
 
-
 <template>
   <div class="content">
     <div class="md-layout">
@@ -8,19 +7,13 @@
 
              <img  class="img" :src="require('@/assets/img/moneda.jpg')">
 
-
-
           <md-card-header data-background-color="green" style="position: absolute;">
 
             <h2 class="title">  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp   &nbsp  &nbsp  &nbsp &nbsp  &nbspPLATAFORMA DE ANÁLISIS POLÍTICO  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp   &nbsp    &nbsp  &nbsp  &nbsp  &nbsp </h2>
 
-
           </md-card-header>
 
-
-
           <md-card-content>
-
 
              <div class="md-card-avatar">
                     <br>
@@ -48,10 +41,7 @@
                             </div>
                   </div>
 
-
-
              </div>
-
 
           </md-card-content>
         </md-card>

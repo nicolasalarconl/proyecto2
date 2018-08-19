@@ -11,7 +11,7 @@
               <label>NOMBRE</label>
               <md-input v-model="username" type="text"></md-input>
             </md-field>
-          </div> 
+          </div>
           <div class="md-layout-item md-small-size-100 md-size-33">
             <md-field>
               <label>APELLIDO PATERNO</label>
@@ -30,7 +30,7 @@
             </md-autocomplete>
 
           <md-field>
-           
+
   <v-container fluid grid-list-xl>
     <v-layout wrap align-center>
       <v-flex xs12 sm6 d-flex>
@@ -43,10 +43,9 @@
     </v-layout>
   </v-container>
 
-
             </md-field>
           </div>
-          
+
           <div class="md-layout-item md-size-100 text-right">
             <md-button class="md-raised md-success">AGREGAR POLITICO</md-button>
           </div>
@@ -56,8 +55,6 @@
     </md-card>
   </form>
 </template>
-
-
 
 <script>/*
 export default {
@@ -70,8 +67,8 @@ export default {
   },
   data () {
     return {
-  
-    } 
+
+    }
   } */
 
 export default{

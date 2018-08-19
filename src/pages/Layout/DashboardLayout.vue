@@ -9,12 +9,10 @@
         <p>Home</p>
       </sidebar-link>
 
-
       <sidebar-link to="/General">
         <md-icon>content_paste</md-icon>
         <p>General</p>
       </sidebar-link>
-
 
       <sidebar-link to="/Gabinete">
         <md-icon>person</md-icon>
@@ -24,11 +22,11 @@
       <sidebar-link to="/Grafo">
         <md-icon>content_paste</md-icon>
         <p>Influyentes</p>
-      </sidebar-link>      
+      </sidebar-link>
     </side-bar>
 
     <div class="main-panel">
-       <top-navbar></top-navbar> 
+       <top-navbar></top-navbar>
 
       <dashboard-content>
 

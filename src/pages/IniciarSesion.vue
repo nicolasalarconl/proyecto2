@@ -30,19 +30,19 @@
 
 <script>
 export default{
-  data(){
-    return{
+  data () {
+    return {
       username: '',
       password: ''
     }
   },
-  methods:{
-    inicio(){
+  methods: {
+    inicio () {
       var json_data = {
         usuario: this.username,
         password: this.password
-      };
-      const aux = JSON.stringify(json_data);
+      }
+      const aux = JSON.stringify(json_data)
       console.log(aux)
       /*
       fetch('http://localhost:3000/login',{

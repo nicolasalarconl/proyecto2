@@ -13,9 +13,7 @@ import Error from '@/pages/Error.vue'
 import Iniciar from '@/pages/IniciarSesion.vue'
 import Agregar from '@/pages/UserProfile/EditProfileForm.vue'
 
-
 const routes = [
-  
 
   {
     path: '/',
@@ -32,24 +30,23 @@ const routes = [
         name: 'User Profile',
         component: UserProfile
       },
-        {
-    path:'Iniciar',
-    name: 'Iniciar',
-    component: Iniciar
-  }
-    ,
+      {
+        path: 'Iniciar',
+        name: 'Iniciar',
+        component: Iniciar
+      },
 
       {
         path: 'Grafo',
         name: 'Grafo',
         component: Grafo
       },
-        {
-          path: 'Agregar',
+      {
+        path: 'Agregar',
         name: 'Agregar Politico',
         component: Agregar
       },
-      
+
       {
         path: 'table',
         name: 'Table List',

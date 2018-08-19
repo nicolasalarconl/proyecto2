@@ -14,7 +14,6 @@
         </md-card>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -24,53 +23,53 @@ export default{
       datos: []
     }
   },
-  mounted:function(){
+  mounted: function () {
     // GET /someUrl
     this.$http.get('http://localhost:8080/politicals/total/general')
-    .then(response=>{
-       // get body data
-    this.datos = response.body;
-    console.log('datos',this.datos)
-    //this.obtenerFecha();
-    this.loadpie();
-    }, response=>{
-       // error callback
-    console.log('Error cargando lista');
-    });
+      .then(response => {
+        // get body data
+        this.datos = response.body
+        console.log('datos', this.datos)
+        // this.obtenerFecha();
+        this.loadpie()
+      }, response => {
+        // error callback
+        console.log('Error cargando lista')
+      })
   },
   methods: {
-    loadpie:function(){
+    loadpie: function () {
       var chart = AmCharts.makeChart(
-        "chartdiv", {
-          "type": "pie",
-          "adjustPrecision": true,
-          "startDuration": 1,
-          "pullOutRadius": "10%",
-          "fontSize": 15,
-          "legend": {
-            "enabled": true,
-            "align": "center",
-            "markerType": "circle",
-            "useMarkerColorForValues": true,
-            "labelText": "Comentarios: ",
-            "textClickEnabled": true,
-            "valueAlign": "left"
+        'chartdiv', {
+          'type': 'pie',
+          'adjustPrecision': true,
+          'startDuration': 1,
+          'pullOutRadius': '10%',
+          'fontSize': 15,
+          'legend': {
+            'enabled': true,
+            'align': 'center',
+            'markerType': 'circle',
+            'useMarkerColorForValues': true,
+            'labelText': 'Comentarios: ',
+            'textClickEnabled': true,
+            'valueAlign': 'left'
           },
-          "colors": [
-            "#9FB93F",
-            "#F56E54",
-            "#727272"
+          'colors': [
+            '#9FB93F',
+            '#F56E54',
+            '#727272'
           ],
-          "labelTickColor": "#000000",
-          "dataProvider": this.datos,
-          "valueField": "numero",
-          "titleField": "aprobacion",
-          "balloonText": "Aprobación [[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
-          "export": {
-            "enabled": true
+          'labelTickColor': '#000000',
+          'dataProvider': this.datos,
+          'valueField': 'numero',
+          'titleField': 'aprobacion',
+          'balloonText': "Aprobación [[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
+          'export': {
+            'enabled': true
           }
-        });
-      }
+        })
     }
+  }
 }
 </script>
