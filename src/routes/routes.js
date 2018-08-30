@@ -11,7 +11,8 @@ import Notifications from '@/pages/Notifications.vue'
 import Ministro from '@/pages/ministro/Ministro.vue'
 import Error from '@/pages/Error.vue'
 import Iniciar from '@/pages/IniciarSesion.vue'
-import Agregar from '@/pages/UserProfile/EditProfileForm.vue'
+import Agregar from '@/pages/UserProfile/AddPolitico.vue'
+import Editar from '@/pages/UserProfile/EditPolitico.vue'
 
 const routes = [
 
@@ -46,7 +47,11 @@ const routes = [
         name: 'Agregar Politico',
         component: Agregar
       },
-
+      {
+        path: 'editar',
+        name: 'Editar Politico',
+        component: Editar
+      },
       {
         path: 'table',
         name: 'Table List',

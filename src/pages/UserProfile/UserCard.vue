@@ -1,7 +1,7 @@
 <template>
     <md-card class="md-card-profile" style="min-height: 450px">
       <div  >
-         <h3> {{ministros.name}} </h3>
+         <h3> {{ministros.nombre}} </h3>
          <p>.</p>
          <br>
       </div>

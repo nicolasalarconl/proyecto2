@@ -2,9 +2,9 @@
 import UserCard from '../pages/UserProfile/UserCard.vue'
 
 // Forms
-import EditProfileForm from '../pages/UserProfile/EditProfileForm.vue'
+import AddPolitico from '../pages/UserProfile/AddPolitico.vue'
 
 export {
   UserCard,
-  EditProfileForm
+  AddPolitico
 }
