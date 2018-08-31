@@ -26,6 +26,7 @@ export default{
     return {
       ministros:[],
       presidente:[],
+      data:[],
         responsiveOptions: [
           ['screen and (max-width: 640px)', {
             seriesBarDistance: 5,
@@ -41,10 +42,11 @@ export default{
   mounted: function(){
     this.$http.get('https://api.myjson.com/bins/ia9sc')
     .then(response => {
-      this.presidente = response.body[0]
+      this.data = response.body
+      this.presidente = this.data[0]
       var i;
-      for (i = 1; i < response.body.length; i++) {
-        this.ministros.push(response.body[i])
+      for(i = 1; i < this.data.length; i++){
+        this.ministros.push(this.data[i])
       }
     })
   }

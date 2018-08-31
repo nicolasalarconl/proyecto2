@@ -21,7 +21,7 @@
           <br>
         </div>
         <div>
-          <md-button class="md-round md-success" :href="'#/ministro/' + this.idministro"> VISUALIZAR</md-button>
+          <md-button class="md-round md-success" :href="'#/ministro/' + ministros.id"> VISUALIZAR</md-button>
         </div>
 
       </md-card-content>
@@ -33,8 +33,7 @@ export default {
   name: 'user-card',
   data () {
     return {
-      selected: [],
-      idministro : this.ministros.id - 1
+      selected: []
     }
   },
   props: {
