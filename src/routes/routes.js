@@ -7,6 +7,8 @@ import Home from '@/pages/Home.vue'
 import Icons from '@/pages/Icons.vue'
 import Grafo from '@/pages/Grafo.vue'
 import Maps from '@/pages/Maps.vue'
+import Mapa from '@/pages/Mapa.vue'
+import Santiago from '@/pages/Santiago.vue'
 import Notifications from '@/pages/Notifications.vue'
 import Ministro from '@/pages/ministro/Ministro.vue'
 import Error from '@/pages/Error.vue'
@@ -57,6 +59,16 @@ const routes = [
         name: 'Table List',
         component: TableList
       },
+      {
+        path: 'Mapa',
+        name: 'Mapa',
+        component: Mapa
+      },
+      {
+        path: 'Santiago',
+        name: 'Santiago',
+        component: Santiago
+      },            
       {
         path: 'Home',
         name: 'Home',
