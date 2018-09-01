@@ -15,7 +15,7 @@
       <md-card>
         <md-card-content>
           <h4 class="title" align="center">Nivel de Aprobación</h4>
-            <div id="chartdiv" style="width: 100%; height: 350px;"></div>
+            <div id="chartdiv1"></div>
         </md-card-content>
       </md-card>
     </div>
@@ -37,7 +37,7 @@ export default{
       .then(response => {
         this.datos = response.body
         console.log('datos', this.datos)
-        this.loadpie()
+        this.crearchart()
       }, response => {
         console.log('Error cargando lista')
       })
@@ -46,16 +46,98 @@ export default{
       .then(response2 => {
         this.ministros = response2.body
       })
+      this.crearchart()
+  },
+  methods:{
+    crearchart:function(){
+    var chart = AmCharts.makeChart(
+      "chartdiv1",{
+        "type": "pie",
+        "balloonText": "Aprobación [[title]]<br><span style='font-size:14px'><b>[[value]]</b>([[percents]]%)</span>",
+        "innerRadius": "40%",
+        'fontSize': 15,
+        "defs": {
+        "filter": [{
+            "id": "shadow",
+            "width": "200%",
+            "height": "200%",
+            "feOffset": {
+              "result": "offOut",
+              "in": "SourceAlpha",
+              "dx": 0,
+              "dy": 0
+            },
+            "feGaussianBlur": {
+              "result": "blurOut",
+              "in": "offOut",
+              "stdDeviation": 5
+            },
+            "feBlend": {
+              "in": "SourceGraphic",
+              "in2": "blurOut",
+              "mode": "normal"
+            }
+          }]
+        },
+        'colors': [
+            '#32CD32',
+            '#FF6347',
+            '#00BFFF'
+        ],        
+        "titleField": "aprobacion",
+        "valueField": "numero",
+        "allLabels": [],
+        "balloon": {},
+        'export': {
+          'enabled': true
+        },
+        "legend": {
+          "enabled": true,
+          "align": "center",
+          'textClickEnabled': true,
+          "labelText": "Comentarios",
+          "markerType": "circle",
+          "valueAlign": "left",
+          'useMarkerColorForValues': true,
+        },
+        "titles": [],
+        "dataProvider": this.datos,
+        });
+      chart.addListener("init", handleInit);
+      chart.addListener("rollOverSlice", function(e) {
+        handleRollOver(e);
+      });
+
+      function handleInit(){
+        chart.legend.addListener("rollOverItem", handleRollOver);
+      };
+
+      function handleRollOver(e){
+        var wedge = e.dataItem.wedge.node;
+        wedge.parentNode.appendChild(wedge);
+      };  
+    }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
+<style>
+#chartdiv1 {
+  width: 100%;
+  height: 500px;
+  font-size: 13px;
 }
-a {
-  color: #42b983;
+
+.amcharts-pie-slice {
+  transform: scale(1);
+  transform-origin: 50% 50%;
+  transition-duration: 0.3s;
+  transition: all .3s ease-out;
+  -webkit-transition: all .3s ease-out;
+  -moz-transition: all .3s ease-out;
+  -o-transition: all .3s ease-out;
+  cursor: pointer;
+  box-shadow: 0 0 30px 0 #000;
 }
+              
 </style>
