@@ -23,6 +23,17 @@
         <md-icon>content_paste</md-icon>
         <p>Influyentes</p>
       </sidebar-link>
+
+      <sidebar-link to="/Mapa">
+        <md-icon>map</md-icon>
+        <p>Mapa Chile</p>
+      </sidebar-link>
+
+      <sidebar-link to="/Santiago">
+        <md-icon>map</md-icon>
+        <p>Santiago</p>
+      </sidebar-link>      
+            
     </side-bar>
 
     <div class="main-panel">
