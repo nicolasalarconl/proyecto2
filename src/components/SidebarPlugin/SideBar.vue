@@ -9,6 +9,7 @@
 
       <a href="#" target="_blank" class="simple-text logo-normal">
         {{title}}
+
       </a>
     </div>
     <div class="sidebar-wrapper">
@@ -38,11 +39,11 @@ export default{
   props: {
     title: {
       type: String,
-      default: 'Menu'
+      default: 'PoliticTweet'
     },
     backgroundImage: {
       type: String,
-      default: require('@/assets/img/sidebar-2.jpg')
+      default: require('@/assets/img/tres.jpeg')
     },
     imgLogo: {
       type: String,
