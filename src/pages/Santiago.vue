@@ -1,18 +1,10 @@
 <template>
-  <div class="content">
-    <div class="md-layout">
-        <md-card>
-       </md-card>
-    </div>
-    <div class="md-layout">
-        <md-card>
-          <md-card-content>
-            <h4 class="title" align="center">Mapa de calor</h4>
-            <div align="center "id="mapid"></div>
-          </md-card-content>
-        </md-card>
-    </div>
-  </div>
+  <md-card-content>
+     <i class="fas fa-map-marked" style="font-size:110%;"> 
+     Percepción general Gabinete según comunas de Santiago</i>  
+     <br></br>          
+     <div align="center "id="mapid"></div>
+  </md-card-content>
 </template>
 
 <script>
@@ -48,7 +40,7 @@ export default{
       L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoibmljb2xlc3RlZmFuaWUiLCJhIjoiY2psOGFidHh6M2dubDNrcDRodjc4a2VndyJ9.ZhWwwHRwl5tun2Yuof46Pg', {
       attribution: false,
       maxZoom: 18,
-      id: 'mapbox.light',
+      id: 'mapbox.dark',
       accessToken: 'your.mapbox.access.token'
     }).addTo(this.mymap);
       //GeoJSON Chile
@@ -472,12 +464,12 @@ export default{
       this.geojson = L.geoJson(this.comunas, {style: this.style, onEachFeature: this.onEachFeature}).addTo(this.mymap);
     },
     getColor:function(d) {
-      return d > 80 ? '#3f3f00' :
-             d > 60 ? '#878700' :
-             d > 40 ? '#b7b700' :
-             d > 20 ? '#ffff0d' :
-             d > 10 ? '#ffff5b' :
-                      '#ffffa9';
+      return d > 80  ? ' #331a00' :
+             d > 60  ? '#663300' :
+             d > 40 ? '#b35900' :
+             d > 20 ? '#ff8000' :
+             d > 10  ? '#ffa64d' :
+                        '#ffcc99';
 
     },
     style:function(feature) {
@@ -541,7 +533,7 @@ export default{
         };
         // method that we will use to update the control based on feature properties passed
         this.info.update = function (props) {
-            this._div.innerHTML = '<h4>Aprobación por Comuna en Santiago</h4>' +  (props ?
+            this._div.innerHTML = '<h4><b>Aprobación por Comuna en Santiago</b></h4>' +  (props ?
                 '<b>' + props.NOM_COM + '</b><br/> Poblacion que aprueba: ' + props.Poblacion + ' (' + props.Aprobacion +'%)'
                 : ' ');
         };
@@ -555,7 +547,7 @@ export default{
               grades = [0, 10, 20, 40, 60, 80],
               labels = [];
           // loop through our density intervals and generate a label with a colored square for each interval
-          div.innerHTML += '<h6>Porcentaje de Aprobación</h6>';
+          div.innerHTML += '<h6><b>Porcentaje de Aprobación</b></h6>';
           for (var i = 0; i < grades.length; i++) {
               div.innerHTML +=
                   '<i style="background:' + color(grades[i] + 1) + '"></i> ' +
@@ -586,14 +578,14 @@ export default{
 
 .legend {
     line-height: 18px;
-    color: #555;
+    color: #000;
 }
 .legend i {
     width: 18px;
     height: 18px;
     float: left;
     margin-right: 8px;
-    opacity: 0.7;
+    opacity: 0.9;
 }
 
 #mapid { 

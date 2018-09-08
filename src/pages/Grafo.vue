@@ -1,24 +1,12 @@
 <template>
-  <div class="content">
-    <div class="md-layout">
-        <md-card>
-         <img  class="img" :src="require('@/assets/img/5b4c9b7099327.jpg')">
-       </md-card>
-    </div>
-    <div class="md-layout">
-        <md-card>
           <md-card-content>
-            <h4 class="title" align="center">Influencia dentro del Gabinete</h4>
+            <i class="fas fa-chart-area" style="font-size:130%;"> Influencia dentro del Gabinete</i>
             <div align="center">
-              <svg width="1200" height="600"></svg>
+              <svg width="1000" height="600"></svg>
             </div>
           </md-card-content>
-        </md-card>
-    </div>
-  </div>
-
 </template>
-
+<script src="d3.legend.js"></script>
 <script>
 
 export default{
@@ -28,7 +16,7 @@ export default{
     }
   },
   mounted: function () {
-    this.$http.get('http://localhost:8080/neo4j/grafo')
+    this.$http.get('https://api.myjson.com/bins/sd5oc')
       .then(response => {
         this.data = response.body
         console.log(this.data)
@@ -43,8 +31,12 @@ export default{
         width = +svg.attr('width'),
         height = +svg.attr('height')
 
-      var color = d3.scaleOrdinal(d3.schemeCategory20c)
-      var c = '#FF2900'
+      var color = d3.scaleOrdinal()
+        .domain(["Ministro", "Twitter"])
+        .range(["#FF2900", "#00AB31"]);
+
+      var m = '#FF2900'
+      var c = '#00AB31'
 
       var simulation = d3.forceSimulation()
         .force('link', d3.forceLink().id(function (d) { return d.id }).distance(100).strength(1))
@@ -67,8 +59,8 @@ export default{
         .on('mouseout', mouseout)
 
       var circles = node.append('circle')
-        .attr('r', function (d) { if (d.weight === 10) return 10; else return 6 })
-        .attr('fill', function (d) { if (d.weight === 10) return c; else return color(d.weight) })
+        .attr('r', function (d) { if (d.weight === 10) return 11; else return 8})
+        .attr('fill', function (d) { if (d.weight === 10) return m; else return c})
         .call(d3.drag()
           .on('start', dragstarted)
           .on('drag', dragged)
@@ -78,15 +70,84 @@ export default{
         .text(function (d) {
           return d.username
         })
-        .attr('x', 10)
+        .attr('x', 13)
         .attr('y', 3)
 
       node.append('title')
-        .text(function (d) {
-          if (d.weight === 10) {
-            return d.cargo // TO-DO backend envia cargo junto con el nombre
-          } else return 'Cuenta de Twitter'
-        })
+        .text(function(d){
+              if (d.username == 'Sebastian Piñera')
+                return 'Presidente de Chile';
+              else if(d.username == 'Andrés Chadwick')
+                return 'Ministro del Interior y Seguridad Pública';
+              else if(d.username == 'Roberto Ampuero')
+                return 'Ministro de Relaciones Exteriores';
+              else if(d.username == 'Alberto Espina')
+                return 'Ministro de Defensa Nacional';
+              else if(d.username == 'Felipe Larraín Bascuñán')
+                return 'Ministro de Hacienda';
+              else if(d.username == 'Gonzalo Blumel Mac Iver')
+                return 'Ministro de Secretaría General de la Presidencia';
+              else if(d.username == 'Cecilia Pérez Jara')
+                return 'Ministra de Secretaría General de Gobierno';
+              else if(d.username == 'José Ramón Valente Vias')
+                return 'Ministro de Economía, Fomento y Turismo';
+              else if(d.username == 'Alfredo Moreno Charme')
+                return 'Ministro de Desarrollo Social';
+              else if(d.username == 'Marcela Cubillos Sigall')
+                return 'Ministra de Educación';
+              else if(d.username == 'Hernán Larraín Fernández')
+                return 'Ministro de Justicia y Derechos Humanos';
+              else if(d.username == 'Nicolás Monckeberg Díaz')
+                return 'Ministro de Trabajo y Previsión Social';
+              else if(d.username == 'Juan Andrés Fontainer Talavera')
+                return 'Ministro de Obras Públicas';
+              else if(d.username == 'Emilio Santelices Cuevas')
+                return 'Ministro de Salud';
+              else if(d.username == 'Cristián Monckeberg Bruner')
+                return 'Ministro de Vivienda y Urbanismo';
+              else if(d.username == 'Antonio Walker Prieto')
+                return 'Ministro de Agricultura';
+              else if(d.username == 'Baldo Prokurica Prokurica')
+                return 'Ministro de Minería';
+              else if(d.username == 'Gloria Hutt Hesse')
+                return 'Ministra de Transporte y Telecomunicaciones';
+              else if(d.username == 'Felipe Ward Edwards')
+                return 'Ministro de Bienes Nacionales';
+              else if(d.username == 'Susana Jiménez Schuster')
+                return 'Ministra de Energía';
+              else if(d.username == 'Carolina Schmidt Zaldívar')
+                return 'Ministra de Medio Ambiente';
+              else if(d.username == 'Pauline Kantor Pupkin')
+                return 'Ministra de Deporte';
+              else if(d.username == 'Isabel Plá Jarufe')
+                return 'Ministra de la Mujer y la Equidad de Género';
+              else if(d.username == 'Consuelo Valdés Chadwick')
+                return 'Ministra de Culturas, las Artes y el Patrimonio';
+              else 
+                return 'Cuenta de Twitter';
+            })
+      
+      var legend = svg.selectAll(".legend")
+        .data(["Ministro", "Twitter"])
+        .enter().append("g")
+        .attr("class", "legend")
+        .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+        // draw legend colored rectangles
+        legend.append("rect")
+          .attr("x", width - 160)
+          .attr("y", height - 562)
+          .attr("width", 15)
+          .attr("height", 15)
+          .style("fill", function(d){return color(d)});
+
+        // draw legend text
+        legend.append("text")
+          .attr("x", width - 140)
+          .attr("y", height - 555)
+          .attr("dy", ".35em")
+          .style("text-anchor", "begins")
+          .text(function(d) { return d;});
 
       simulation
         .nodes(graph.nodes)
@@ -124,13 +185,11 @@ export default{
       function mouseover () {
         d3.select(this).select('circle').transition()
           .duration(750)
-          .attr('r', 16)
       };
 
       function mouseout () {
         d3.select(this).select('circle').transition()
           .duration(750)
-          .attr('r', 8)
       };
     }
   }

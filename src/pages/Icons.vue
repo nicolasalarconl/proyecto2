@@ -1,19 +1,9 @@
 <template>
-  <div class="content">
-    <div class="md-layout">
-        <md-card>
-         <img  class="img" :src="require('@/assets/img/fondoM.png')">
-       </md-card>
-    </div>
-    <div class="md-layout">
-        <md-card>
           <md-card-content>
-            <h4 class="title" align="center">Nivel de Aprobación general</h4>
+            <i class="fas fa-chart-pie" style="font-size:130%;"> Nivel de Aprobación general</i>
             <div id="chartdiv"></div>
           </md-card-content>
         </md-card>
-    </div>
-  </div>
 </template>
 
 <script>
@@ -77,7 +67,7 @@ export default{
 <style>
 #chartdiv {
   width: 100%;
-  height: 500px;
+  height: 445px;
   font-size: 13px;
 }             
 </style>
