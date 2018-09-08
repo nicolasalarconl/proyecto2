@@ -14,7 +14,7 @@
       </div>
       <md-card>
         <md-card-content>
-          <h4 class="title" align="center">Nivel de Aprobación</h4>
+          <i class="fas fa-chart-pie" style="font-size:130%;"> Nivel de Aprobación</i>
             <div id="chartdiv1"></div>
         </md-card-content>
       </md-card>
