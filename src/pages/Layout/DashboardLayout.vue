@@ -5,34 +5,36 @@
     <side-bar>
       <mobile-menu slot="content"></mobile-menu>
       <sidebar-link to="/Home">
-        <md-icon>dashboard</md-icon>
+        <md-icon>home</md-icon>
         <p>Home</p>
       </sidebar-link>
 
       <sidebar-link to="/General">
-        <md-icon>content_paste</md-icon>
+        <md-icon>pie_chart</md-icon>
         <p>General</p>
       </sidebar-link>
 
       <sidebar-link to="/Gabinete">
-        <md-icon>person</md-icon>
+        <md-icon>group</md-icon>
         <p>Gabinete</p>
       </sidebar-link>
 
       <sidebar-link to="/Grafo">
-        <md-icon>content_paste</md-icon>
+        <md-icon>bubble_chart</md-icon>
         <p>Influyentes</p>
       </sidebar-link>
 
       <sidebar-link to="/Mapa">
-        <md-icon>map</md-icon>
-        <p>Mapa Chile</p>
+        <md-icon>location_on</md-icon>
+        <p>Mapa Regiones Chile</p>
       </sidebar-link>
 
       <sidebar-link to="/Santiago">
-        <md-icon>map</md-icon>
-        <p>Santiago</p>
-      </sidebar-link>      
+        <md-icon>location_on</md-icon>
+        <p>Mapa Santiago</p>
+      </sidebar-link>
+
+      
             
     </side-bar>
 
