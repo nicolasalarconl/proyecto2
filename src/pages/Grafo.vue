@@ -2,7 +2,7 @@
           <md-card-content>
             <i class="fas fa-chart-area" style="font-size:130%;"> Influencia dentro del Gabinete</i>
             <div align="center">
-              <svg width="1000" height="600"></svg>
+              <svg width="950" height="600"></svg>
             </div>
           </md-card-content>
 </template>
@@ -59,29 +59,7 @@ export default{
         .selectAll('g')
         .data(graph.nodes)
         .enter().append('g')
-        .on("click", function (d) {
-           if (d3.event.ctrlKey)
-            location.href = 'http://www.google.com';
-        })
-        .on("mouseover", function(d) {
-          d3.select(this).select("text").style("font", "18px sans-serif"); 
-          var connectedNodeIds = graph.links
-            .filter(x => x.source.id == d.id || x.target.id == d.id)
-            .map(x => x.source.id == d.id ? x.target.id : x.source.id);
-
-          d3.select(".nodes")
-            .selectAll("circle")
-            .attr("fill", function(c) {
-              if (connectedNodeIds.indexOf(c.id) > -1 || c.id == d.id) return n;
-              else return o;
-            })
-        })
-        .on("mouseout", function(d) {  
-          d3.select(this).select("text").style("font", "13px sans-serif");       
-          d3.select(".nodes")
-            .selectAll("circle")
-            .attr('fill', function (d) { if (d.weight === 10) return m; else return c}) 
-        });
+        .on('click', connectedNodes);
         
       var circles = node.append('circle')
         .attr('r', function (d) { if (d.weight === 10) return 14; else return 10})
@@ -183,26 +161,46 @@ export default{
         .links(graph.links)
 
 
-      let linkedByIndex = {};
-      links.forEach((d) => {
-        linkedByIndex[`${d.source.index},${d.target.index}`] = true;
+      var toggle = 0;
+
+      //Create an array logging what is connected to what
+      var linkedByIndex = {};
+      var i;
+      for (i = 0; i < graph.nodes.length; i++) {
+          linkedByIndex[i + "," + i] = 1;
+      };
+      graph.links.forEach(function (d) {
+          linkedByIndex[d.source.index + "," + d.target.index] = 1;
       });
 
-      function isConnected(a, b) {
-        return isConnectedAsTarget(a, b) || isConnectedAsSource(a, b) || a.index === b.index;
+      //This function looks up whether a pair are neighbours  
+      function neighboring(a, b) {
+          return linkedByIndex[a.index + "," + b.index];
       };
 
-      function isConnectedAsSource(a, b) {
-        return linkedByIndex[`${a.index},${b.index}`];
-      };
+      function connectedNodes(d) {
 
-      function isConnectedAsTarget(a, b) {
-        return linkedByIndex[`${b.index},${a.index}`];
+          if (toggle == 0) {
+              //Reduce the opacity of all but the neighbouring nodes
+              d = d3.select(this).node().__data__;
+              node.style("opacity", function (o) {
+                  return neighboring(d, o) | neighboring(o, d) ? 1 : 0.1;
+              });
+              
+              link.style("opacity", function (o) {
+                  return d.index==o.source.index | d.index==o.target.index ? 1 : 0.1;
+              });
+              
+              //Reduce the op
+              
+              toggle = 1;
+          } else {
+              //Put them back to opacity=1
+              node.style("opacity", 1);
+              link.style("opacity", 1);
+              toggle = 0;
+          }
       };
-
-      function isEqual(a, b) {
-        return a.index === b.index;
-      }; 
 
       function ticked () {
         link
@@ -244,9 +242,8 @@ export default{
 }
 
 .nodes circle {
-  stroke: #000;
-  stroke-width: px;
-  stroke-opacity: 1;
+  stroke: #fff;
+  stroke-width: 1.5px;
 }
 
 text {
