@@ -37,6 +37,9 @@ export default{
 
       var m = '#FF2900'
       var c = '#00AB31'
+      var n = '#F39C12'
+      var o = '#808B96'
+      const links = graph.links;
 
       var simulation = d3.forceSimulation()
         .force('link', d3.forceLink().id(function (d) { return d.id }).distance(100).strength(1))
@@ -49,17 +52,39 @@ export default{
         .data(graph.links)
         .enter().append('line')
         .attr('stroke-width', function (d) { return Math.sqrt(d.value) })
+ 
 
       var node = svg.append('g')
         .attr('class', 'nodes')
         .selectAll('g')
         .data(graph.nodes)
         .enter().append('g')
-        .on('mouseover', mouseover)
-        .on('mouseout', mouseout)
+        .on("click", function (d) {
+           if (d3.event.ctrlKey)
+            location.href = 'http://www.google.com';
+        })
+        .on("mouseover", function(d) {
+          d3.select(this).select("text").style("font", "18px sans-serif"); 
+          var connectedNodeIds = graph.links
+            .filter(x => x.source.id == d.id || x.target.id == d.id)
+            .map(x => x.source.id == d.id ? x.target.id : x.source.id);
 
+          d3.select(".nodes")
+            .selectAll("circle")
+            .attr("fill", function(c) {
+              if (connectedNodeIds.indexOf(c.id) > -1 || c.id == d.id) return n;
+              else return o;
+            })
+        })
+        .on("mouseout", function(d) {  
+          d3.select(this).select("text").style("font", "13px sans-serif");       
+          d3.select(".nodes")
+            .selectAll("circle")
+            .attr('fill', function (d) { if (d.weight === 10) return m; else return c}) 
+        });
+        
       var circles = node.append('circle')
-        .attr('r', function (d) { if (d.weight === 10) return 11; else return 8})
+        .attr('r', function (d) { if (d.weight === 10) return 14; else return 10})
         .attr('fill', function (d) { if (d.weight === 10) return m; else return c})
         .call(d3.drag()
           .on('start', dragstarted)
@@ -72,6 +97,7 @@ export default{
         })
         .attr('x', 13)
         .attr('y', 3)
+
 
       node.append('title')
         .text(function(d){
@@ -156,6 +182,28 @@ export default{
       simulation.force('link')
         .links(graph.links)
 
+
+      let linkedByIndex = {};
+      links.forEach((d) => {
+        linkedByIndex[`${d.source.index},${d.target.index}`] = true;
+      });
+
+      function isConnected(a, b) {
+        return isConnectedAsTarget(a, b) || isConnectedAsSource(a, b) || a.index === b.index;
+      };
+
+      function isConnectedAsSource(a, b) {
+        return linkedByIndex[`${a.index},${b.index}`];
+      };
+
+      function isConnectedAsTarget(a, b) {
+        return linkedByIndex[`${b.index},${a.index}`];
+      };
+
+      function isEqual(a, b) {
+        return a.index === b.index;
+      }; 
+
       function ticked () {
         link
           .attr('x1', function (d) { return d.source.x })
@@ -168,6 +216,7 @@ export default{
             return 'translate(' + d.x + ',' + d.y + ')'
           })
       };
+
       function dragstarted (d) {
         if (!d3.event.active) simulation.alphaTarget(0.3).restart()
         d.fx = d.x
@@ -182,15 +231,6 @@ export default{
         d.fx = null
         d.fy = null
       };
-      function mouseover () {
-        d3.select(this).select('circle').transition()
-          .duration(750)
-      };
-
-      function mouseout () {
-        d3.select(this).select('circle').transition()
-          .duration(750)
-      };
     }
   }
 }
@@ -200,7 +240,7 @@ export default{
 <style>
 .links line {
   stroke: #999;
-  stroke-opacity: 0.6;
+  stroke-opacity: 0.4;
 }
 
 .nodes circle {
